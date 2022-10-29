@@ -44,7 +44,7 @@ namespace ProjetosAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult AtualizaCategoria (int id, [FromBody] AnotacaoDto anotacaoAtualizada)
+        public IActionResult AtualizaAnotacao (int id, [FromBody] AnotacaoDto anotacaoAtualizada)
         {
             Result resultado = _anotacaoService.AtualizaAnotacao(id, anotacaoAtualizada);
             if (resultado.IsFailed) return NotFound();

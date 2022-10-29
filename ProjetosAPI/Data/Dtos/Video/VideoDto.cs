@@ -4,14 +4,14 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ProjetosAPI.Data.Dtos.Anotacao
+namespace ProjetosAPI.Data.Dtos.Video
 {
-    public class AnotacaoDto
+    public class VideoDto
     {
         [Required]
-        public string Titulo { get; set; }
+        public string Nome { get; set; }
         [Required]
-        public string Texto { get; set; }
-        public DateTime Data { get; set; }
+        public string Link { get; set; }
+        public string Descricao { get; set; }
     }
 }

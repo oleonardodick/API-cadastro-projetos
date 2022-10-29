@@ -35,6 +35,7 @@ namespace ProjetosAPI.Data
 
         public DbSet<Categoria> Categoria { get; set; }
         public DbSet<Anotacao> Anotacao { get; set; }
+        public DbSet<Video> Video { get; set; }
     }
 }
 
