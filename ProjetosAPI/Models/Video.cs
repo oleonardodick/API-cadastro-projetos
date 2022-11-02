@@ -16,5 +16,7 @@ namespace ProjetosAPI.Models
         [Required]
         public string Link { get; set; }
         public string Descricao { get; set; }
+        public int ProjetoId { get; set; }
+        public virtual Projeto Projeto { get; set; }
     }
 }

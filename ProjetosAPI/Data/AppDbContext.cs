@@ -12,31 +12,39 @@ namespace ProjetosAPI.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            //builder.Entity<Endereco>()
-            //    .HasOne(endereco => endereco.Cinema)
-            //    .WithOne(cinema => cinema.Endereco)
-            //    .HasForeignKey<Cinema>(cinema => cinema.EnderecoId);
+            builder.Entity<Movimento>()
+                .HasOne(movimento => movimento.Material)
+                .WithMany(material => material.Movimento)
+                .HasForeignKey(movimento => movimento.MaterialId);
 
-            //builder.Entity<Cinema>()
-            //    .HasOne(cinema => cinema.Gerente)
-            //    .WithMany(gerente => gerente.Cinemas)
-            //    .HasForeignKey(cinema => cinema.GerenteId);
+            builder.Entity<Categoria>()
+                .HasOne(categoria => categoria.Projeto)
+                .WithOne(projeto => projeto.Categoria)
+                .HasForeignKey<Projeto>(projeto => projeto.CategoriaId);
 
-            //builder.Entity<Sessao>()
-            //    .HasOne(sessao => sessao.Filme)
-            //    .WithMany(filme => filme.Sessoes)
-            //    .HasForeignKey(sessao => sessao.FilmeId);
+            builder.Entity<Anotacao>()
+                .HasOne(anotacao => anotacao.Projeto)
+                .WithMany(projeto => projeto.Anotacoes)
+                .HasForeignKey(anotacao => anotacao.ProjetoId);
 
-            //builder.Entity<Sessao>()
-            //   .HasOne(sessao => sessao.Cinema)
-            //   .WithMany(cinema => cinema.Sessoes)
-            //   .HasForeignKey(sessao => sessao.CinemaId);
+            builder.Entity<Imagem>()
+                .HasOne(imagem => imagem.Projeto)
+                .WithMany(projeto => projeto.Imagens)
+                .HasForeignKey(imagem => imagem.ProjetoId);
+
+            builder.Entity<Video>()
+                .HasOne(video => video.Projeto)
+                .WithMany(projeto => projeto.Videos)
+                .HasForeignKey(video => video.ProjetoId);
         }
 
         public DbSet<Categoria> Categoria { get; set; }
         public DbSet<Anotacao> Anotacao { get; set; }
         public DbSet<Video> Video { get; set; }
         public DbSet<Imagem> Imagem { get; set; }
+        public DbSet<Material> Material { get; set; }
+        public DbSet<Movimento> Movimento { get; set; }
+        public DbSet<Projeto> Projeto { get; set; }
     }
 }
 

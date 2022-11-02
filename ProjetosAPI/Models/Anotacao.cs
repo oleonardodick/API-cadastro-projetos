@@ -16,5 +16,7 @@ namespace ProjetosAPI.Models
         [Required]
         public string Texto { get; set; }
         public DateTime Data { get; set; }
+        public int ProjetoId { get; set; }
+        public virtual Projeto Projeto { get; set; }
     }
 }

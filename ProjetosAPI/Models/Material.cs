@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetosAPI.Models
 {
-    public class Imagem
+    public class Material
     {
         [Key]
         [Required]
@@ -14,9 +14,9 @@ namespace ProjetosAPI.Models
         [Required]
         public string Nome { get; set; }
         [Required]
-        public string Caminho { get; set; }
         public string Descricao { get; set; }
-        public int ProjetoId { get; set; }
-        public virtual Projeto Projeto { get; set; }
+        [Required]
+        public string UnidadeMedida { get; set; }
+        public virtual List<Movimento> Movimento { get; set; }
     }
 }
