@@ -27,6 +27,11 @@ namespace ProjetosAPI
         {
             services.AddDbContext<AppDbContext>(opts => opts.UseLazyLoadingProxies().UseSqlServer(Configuration.GetConnectionString("ProjetoConnection")));
             services.AddScoped<CategoriaService, CategoriaService>();
+            services.AddScoped<AnotacaoService, AnotacaoService>();
+            services.AddScoped<ImagemService, ImagemService>();
+            services.AddScoped<MaterialService, MaterialService>();
+            services.AddScoped<MovimentoService, MovimentoService>();
+            services.AddScoped<VideoService, VideoService>();
             services.AddControllers();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

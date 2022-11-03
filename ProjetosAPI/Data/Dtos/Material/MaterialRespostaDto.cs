@@ -5,11 +5,12 @@ using System.Threading.Tasks;
 
 namespace ProjetosAPI.Data.Dtos
 {
-    public class AnotacaoRespostaDto
+    public class MaterialRespostaDto
     {
+
         public int Id { get; set; }
-        public string Titulo { get; set; }
-        public string Texto { get; set; }
-        public DateTime Data { get; set; }
+        public string Nome { get; set; }
+        public string Descricao { get; set; }
+        public string UnidadeMedida { get; set; }
     }
 }

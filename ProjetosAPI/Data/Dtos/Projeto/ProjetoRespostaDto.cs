@@ -5,11 +5,12 @@ using System.Threading.Tasks;
 
 namespace ProjetosAPI.Data.Dtos
 {
-    public class VideoRespostaDto
+    public class ProjetoRespostaDto
     {
         public int Id { get; set; }
-        public string Nome { get; set; }
-        public string Link { get; set; }
         public string Descricao { get; set; }
+        public float Preco { get; set; }
+        public string Capa { get; set; }
+        public int CategoriaId { get; set; }
     }
 }

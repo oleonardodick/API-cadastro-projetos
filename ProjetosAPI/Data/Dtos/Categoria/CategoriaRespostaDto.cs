@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ProjetosAPI.Data.Dtos.Categoria
+namespace ProjetosAPI.Data.Dtos
 {
     public class CategoriaRespostaDto
     {

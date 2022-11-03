@@ -22,5 +22,6 @@ namespace ProjetosAPI.Models
         public virtual List<Imagem> Imagens { get; set; }
         public virtual List<Anotacao> Anotacoes { get; set; }
         public virtual List<Video> Videos { get; set; }
+        public virtual List<MovimentoProjeto> MovimentosProjeto { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace ProjetosAPI.Data
         {
             builder.Entity<Movimento>()
                 .HasOne(movimento => movimento.Material)
-                .WithMany(material => material.Movimento)
+                .WithMany(material => material.Movimentos)
                 .HasForeignKey(movimento => movimento.MaterialId);
 
             builder.Entity<Categoria>()
@@ -36,6 +36,11 @@ namespace ProjetosAPI.Data
                 .HasOne(video => video.Projeto)
                 .WithMany(projeto => projeto.Videos)
                 .HasForeignKey(video => video.ProjetoId);
+
+            builder.Entity<MovimentoProjeto>()
+                .HasOne(movprojeto => movprojeto.Projeto)
+                .WithMany(projeto => projeto.MovimentosProjeto)
+                .HasForeignKey(movprojeto => movprojeto.ProjetoId);
         }
 
         public DbSet<Categoria> Categoria { get; set; }
@@ -45,6 +50,7 @@ namespace ProjetosAPI.Data
         public DbSet<Material> Material { get; set; }
         public DbSet<Movimento> Movimento { get; set; }
         public DbSet<Projeto> Projeto { get; set; }
+        public DbSet<MovimentoProjeto> MovimentoProjeto { get; set; }
     }
 }
 

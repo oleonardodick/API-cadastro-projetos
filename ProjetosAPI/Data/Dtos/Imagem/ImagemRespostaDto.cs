@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ProjetosAPI.Data.Dtos.Imagem
+namespace ProjetosAPI.Data.Dtos
 {
     public class ImagemRespostaDto
     {

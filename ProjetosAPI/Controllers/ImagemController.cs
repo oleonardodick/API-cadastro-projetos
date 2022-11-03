@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using FluentResults;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ProjetosAPI.Data.Dtos.Imagem;
+using ProjetosAPI.Data.Dtos;
 using ProjetosAPI.Services;
 
 namespace ProjetosAPI.Controllers

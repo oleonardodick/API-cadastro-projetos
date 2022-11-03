@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace ProjetosAPI.Data.Dtos
 {
-    public class VideoDto
+    public class MaterialDto
     {
         [Required]
         public string Nome { get; set; }
         [Required]
-        public string Link { get; set; }
         public string Descricao { get; set; }
+        [Required]
+        public string UnidadeMedida { get; set; }
     }
 }

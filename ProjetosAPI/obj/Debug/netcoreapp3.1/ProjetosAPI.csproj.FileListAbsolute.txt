@@ -1,3 +1,8 @@
+C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\obj\Debug\netcoreapp3.1\ProjetosAPI.csproj.CoreCompileInputs.cache
+C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\obj\Debug\netcoreapp3.1\ProjetosAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\obj\Debug\netcoreapp3.1\ProjetosAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\obj\Debug\netcoreapp3.1\ProjetosAPI.AssemblyInfoInputs.cache
+C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\obj\Debug\netcoreapp3.1\ProjetosAPI.AssemblyInfo.cs
 C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -7,6 +12,7 @@ C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\bin\De
 C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\bin\Debug\netcoreapp3.1\ProjetosAPI.runtimeconfig.dev.json
 C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\bin\Debug\netcoreapp3.1\ProjetosAPI.dll
 C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\bin\Debug\netcoreapp3.1\ProjetosAPI.pdb
+C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\bin\Debug\netcoreapp3.1\ProjetosAPI.xml
 C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\bin\Debug\netcoreapp3.1\AutoMapper.dll
 C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\bin\Debug\netcoreapp3.1\Castle.Core.dll
@@ -135,12 +141,6 @@ C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\bin\De
 C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\obj\Debug\netcoreapp3.1\ProjetosAPI.csprojAssemblyReference.cache
-C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\obj\Debug\netcoreapp3.1\ProjetosAPI.csproj.CoreCompileInputs.cache
-C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\obj\Debug\netcoreapp3.1\ProjetosAPI.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\obj\Debug\netcoreapp3.1\ProjetosAPI.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\obj\Debug\netcoreapp3.1\ProjetosAPI.AssemblyInfoInputs.cache
-C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\obj\Debug\netcoreapp3.1\ProjetosAPI.AssemblyInfo.cs
 C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\obj\Debug\netcoreapp3.1\ProjetosAPI.RazorTargetAssemblyInfo.cache
 C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\obj\Debug\netcoreapp3.1\ProjetosAPI.csproj.CopyComplete
 C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\obj\Debug\netcoreapp3.1\staticwebassets\ProjetosAPI.StaticWebAssets.Manifest.cache
@@ -148,4 +148,4 @@ C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\obj\De
 C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\obj\Debug\netcoreapp3.1\ProjetosAPI.dll
 C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\obj\Debug\netcoreapp3.1\ProjetosAPI.pdb
 C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\obj\Debug\netcoreapp3.1\ProjetosAPI.genruntimeconfig.cache
-C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\bin\Debug\netcoreapp3.1\ProjetosAPI.xml
+C:\Users\Leo_D\Documents\Desenvolvimento Sistemas\ProjetosAPI\ProjetosAPI\obj\Debug\netcoreapp3.1\ProjetosAPI.csprojAssemblyReference.cache

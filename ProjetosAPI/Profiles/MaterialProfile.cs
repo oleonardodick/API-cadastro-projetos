@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace ProjetosAPI.Profiles
 {
-    public class AnotacaoProfile:Profile
+    public class MaterialProfile:Profile
     {
-        public AnotacaoProfile()
+        public MaterialProfile()
         {
-            CreateMap<AnotacaoDto, Anotacao>();
-            CreateMap<Anotacao, AnotacaoRespostaDto>();
+            CreateMap<MaterialDto, Material>();
+            CreateMap<Material, MaterialRespostaDto>();
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using FluentResults;
 using ProjetosAPI.Data;
-using ProjetosAPI.Data.Dtos.Video;
+using ProjetosAPI.Data.Dtos;
 using ProjetosAPI.Models;
 using System.Collections.Generic;
 using System.Linq;

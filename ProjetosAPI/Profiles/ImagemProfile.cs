@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using ProjetosAPI.Data.Dtos.Imagem;
+using ProjetosAPI.Data.Dtos;
 using ProjetosAPI.Models;
 
 namespace ProjetosAPI.Profiles

@@ -1,6 +1,6 @@
 ﻿using FluentResults;
 using Microsoft.AspNetCore.Mvc;
-using ProjetosAPI.Data.Dtos.Categoria;
+using ProjetosAPI.Data.Dtos;
 using ProjetosAPI.Services;
 using System.Collections.Generic;
 

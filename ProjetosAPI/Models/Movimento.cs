@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -16,5 +17,6 @@ namespace ProjetosAPI.Models
         public int MaterialId { get; set; }
         [Required]
         public float Quantidade { get; set; }
+        public char Tipo { get; set; }
     }
 }
