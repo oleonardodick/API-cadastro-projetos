@@ -15,5 +15,7 @@ namespace ProjetosAPI.Data.Dtos
         public char Tipo { get; set; }
         [Required]
         public Projeto Projeto { get; set; }
+        [Required]
+        public char Status { get; set; }
     }
 }

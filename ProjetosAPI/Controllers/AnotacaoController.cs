@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using FluentResults;
-using Microsoft.AspNetCore.Http;
+﻿using FluentResults;
 using Microsoft.AspNetCore.Mvc;
 using ProjetosAPI.Data.Dtos;
 using ProjetosAPI.Services;
+using System.Collections.Generic;
 
 namespace ProjetosAPI.Controllers
 {

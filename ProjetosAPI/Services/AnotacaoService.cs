@@ -76,7 +76,7 @@ namespace ProjetosAPI.Services
             }
             else
             {
-                _context.Remove(anotacao);
+                _context.Anotacao.Remove(anotacao);
                 _context.SaveChanges();
                 return Result.Ok();
             }

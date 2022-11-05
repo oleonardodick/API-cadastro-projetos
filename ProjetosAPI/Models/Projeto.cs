@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace ProjetosAPI.Models
 {
@@ -22,6 +19,7 @@ namespace ProjetosAPI.Models
         public virtual List<Imagem> Imagens { get; set; }
         public virtual List<Anotacao> Anotacoes { get; set; }
         public virtual List<Video> Videos { get; set; }
+        [JsonIgnore]
         public virtual List<MovimentoProjeto> MovimentosProjeto { get; set; }
     }
 }

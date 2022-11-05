@@ -60,6 +60,7 @@ namespace ProjetosAPI.Services
             else
             {
                 _mapper.Map(videoAtualizado, video);
+                _context.Video.Update(video);
                 _context.SaveChanges();
                 return Result.Ok();
             }
@@ -74,7 +75,7 @@ namespace ProjetosAPI.Services
             }
             else
             {
-                _context.Remove(video);
+                _context.Video.Remove(video);
                 _context.SaveChanges();
                 return Result.Ok();
             }

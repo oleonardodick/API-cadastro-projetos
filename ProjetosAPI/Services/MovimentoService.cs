@@ -62,6 +62,7 @@ namespace ProjetosAPI.Services
             else
             {
                 _mapper.Map(movimentoAtualizado, movimento);
+                _context.Movimento.Update(movimento);
                 _context.SaveChanges();
                 return Result.Ok();
             }
@@ -76,7 +77,7 @@ namespace ProjetosAPI.Services
             }
             else
             {
-                _context.Remove(movimento);
+                _context.Movimento.Remove(movimento);
                 _context.SaveChanges();
                 return Result.Ok();
             }

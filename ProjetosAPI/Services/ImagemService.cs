@@ -62,6 +62,7 @@ namespace ProjetosAPI.Services
             else
             {
                 _mapper.Map(imagemAtualizada, imagem);
+                _context.Imagem.Update(imagem);
                 _context.SaveChanges();
                 return Result.Ok();
             }
@@ -76,7 +77,7 @@ namespace ProjetosAPI.Services
             }
             else
             {
-                _context.Remove(imagem);
+                _context.Imagem.Remove(imagem);
                 _context.SaveChanges();
                 return Result.Ok();
             }

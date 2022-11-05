@@ -62,6 +62,7 @@ namespace ProjetosAPI.Services
             else
             {
                 _mapper.Map(categoriaAtualizada, categoria);
+                _context.Categoria.Update(categoria);
                 _context.SaveChanges();
                 return Result.Ok();
             }
@@ -76,7 +77,7 @@ namespace ProjetosAPI.Services
             } 
             else
             {
-                _context.Remove(categoria);
+                _context.Categoria.Remove(categoria);
                 _context.SaveChanges();
                 return Result.Ok();
             }

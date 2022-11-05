@@ -63,6 +63,7 @@ namespace ProjetosAPI.Services
             else
             {
                 _mapper.Map(materialAtualizado, material);
+                _context.Material.Update(material);
                 _context.SaveChanges();
                 return Result.Ok();
             }
@@ -77,7 +78,7 @@ namespace ProjetosAPI.Services
             }
             else
             {
-                _context.Remove(material);
+                _context.Material.Remove(material);
                 _context.SaveChanges();
                 return Result.Ok();
             }

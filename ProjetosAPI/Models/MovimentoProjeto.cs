@@ -17,5 +17,7 @@ namespace ProjetosAPI.Models
         public char Tipo { get; set; }
         public int ProjetoId { get; set; }
         public virtual Projeto Projeto { get; set; }
+        [Required]
+        public char Status { get; set; }
     }
 }
