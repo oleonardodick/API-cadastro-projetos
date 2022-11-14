@@ -32,8 +32,15 @@ namespace ProjetosAPI
             services.AddScoped<MaterialService, MaterialService>();
             services.AddScoped<MovimentoService, MovimentoService>();
             services.AddScoped<VideoService, VideoService>();
+            services.AddScoped<ProjetoService, ProjetoService>();
             services.AddControllers();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddCors(options => {
+                options.AddPolicy("CorsPolicy", builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+            });
 
             services.AddSwaggerGen(c =>
             {
@@ -56,6 +63,8 @@ namespace ProjetosAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("CorsPolicy");
 
             app.UseSwagger();
 

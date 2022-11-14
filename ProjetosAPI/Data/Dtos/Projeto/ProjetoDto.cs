@@ -10,16 +10,11 @@ namespace ProjetosAPI.Data.Dtos
     public class ProjetoDto
     {
         [Required]
-        public int Id { get; set; }
-        [Required]
         public string Descricao { get; set; }
         [Required]
         public float Preco { get; set; }
         public string Capa { get; set; }
-        public Categoria Categoria { get; set; }
-        public object Imagens { get; set; }
-        public object Anotacoes { get; set; }
-        public object Videos { get; set; }
-        public object MovimentosProjeto { get; set; }
+        [Required]
+        public int CategoriaId { get; set; }
     }
 }

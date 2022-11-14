@@ -13,5 +13,6 @@ namespace ProjetosAPI.Data.Dtos
         [Required]
         public string Texto { get; set; }
         public DateTime Data { get; set; }
+        public int ProjetoId { get; set; }
     }
 }

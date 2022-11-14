@@ -17,10 +17,10 @@ namespace ProjetosAPI.Data
                 .WithMany(material => material.Movimentos)
                 .HasForeignKey(movimento => movimento.MaterialId);
 
-            builder.Entity<Categoria>()
-                .HasOne(categoria => categoria.Projeto)
-                .WithOne(projeto => projeto.Categoria)
-                .HasForeignKey<Projeto>(projeto => projeto.CategoriaId);
+            builder.Entity<Projeto>()
+                .HasOne(projeto => projeto.Categoria)
+                .WithMany(categoria => categoria.Projetos)
+                .HasForeignKey(projeto => projeto.CategoriaId);
 
             builder.Entity<Anotacao>()
                 .HasOne(anotacao => anotacao.Projeto)

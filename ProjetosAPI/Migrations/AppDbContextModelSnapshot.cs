@@ -193,8 +193,7 @@ namespace ProjetosAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoriaId")
-                        .IsUnique();
+                    b.HasIndex("CategoriaId");
 
                     b.ToTable("Projeto");
                 });
@@ -274,8 +273,8 @@ namespace ProjetosAPI.Migrations
             modelBuilder.Entity("ProjetosAPI.Models.Projeto", b =>
                 {
                     b.HasOne("ProjetosAPI.Models.Categoria", "Categoria")
-                        .WithOne("Projeto")
-                        .HasForeignKey("ProjetosAPI.Models.Projeto", "CategoriaId")
+                        .WithMany("Projetos")
+                        .HasForeignKey("CategoriaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -295,7 +294,7 @@ namespace ProjetosAPI.Migrations
 
             modelBuilder.Entity("ProjetosAPI.Models.Categoria", b =>
                 {
-                    b.Navigation("Projeto");
+                    b.Navigation("Projetos");
                 });
 
             modelBuilder.Entity("ProjetosAPI.Models.Material", b =>

@@ -10,8 +10,8 @@ using ProjetosAPI.Data;
 namespace ProjetosAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221105123438_criandoBancoDeDados")]
-    partial class criandoBancoDeDados
+    [Migration("20221113020255_Criando banco de dados")]
+    partial class Criandobancodedados
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -195,8 +195,7 @@ namespace ProjetosAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoriaId")
-                        .IsUnique();
+                    b.HasIndex("CategoriaId");
 
                     b.ToTable("Projeto");
                 });
@@ -276,8 +275,8 @@ namespace ProjetosAPI.Migrations
             modelBuilder.Entity("ProjetosAPI.Models.Projeto", b =>
                 {
                     b.HasOne("ProjetosAPI.Models.Categoria", "Categoria")
-                        .WithOne("Projeto")
-                        .HasForeignKey("ProjetosAPI.Models.Projeto", "CategoriaId")
+                        .WithMany("Projetos")
+                        .HasForeignKey("CategoriaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -297,7 +296,7 @@ namespace ProjetosAPI.Migrations
 
             modelBuilder.Entity("ProjetosAPI.Models.Categoria", b =>
                 {
-                    b.Navigation("Projeto");
+                    b.Navigation("Projetos");
                 });
 
             modelBuilder.Entity("ProjetosAPI.Models.Material", b =>

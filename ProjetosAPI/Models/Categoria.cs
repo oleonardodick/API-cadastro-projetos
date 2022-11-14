@@ -16,6 +16,6 @@ namespace ProjetosAPI.Models
         public string Nome { get; set; }
         [Required]
         public string Cor { get; set; }
-        public virtual Projeto Projeto { get; set; }
+        public virtual List<Projeto> Projetos { get; set; }
     }
 }

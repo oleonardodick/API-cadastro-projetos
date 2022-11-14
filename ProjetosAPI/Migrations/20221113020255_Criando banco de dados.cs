@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ProjetosAPI.Migrations
 {
-    public partial class criandoBancoDeDados : Migration
+    public partial class Criandobancodedados : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -190,8 +190,7 @@ namespace ProjetosAPI.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Projeto_CategoriaId",
                 table: "Projeto",
-                column: "CategoriaId",
-                unique: true);
+                column: "CategoriaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Video_ProjetoId",

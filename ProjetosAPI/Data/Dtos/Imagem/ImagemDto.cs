@@ -13,5 +13,6 @@ namespace ProjetosAPI.Data.Dtos
         [Required]
         public string Caminho { get; set; }
         public string Descricao { get; set; }
+        public int ProjetoId { get; set; }
     }
 }

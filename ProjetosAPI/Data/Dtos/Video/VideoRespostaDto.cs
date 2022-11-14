@@ -11,5 +11,6 @@ namespace ProjetosAPI.Data.Dtos
         public string Nome { get; set; }
         public string Link { get; set; }
         public string Descricao { get; set; }
+        public virtual ProjetoRespostaDto Projeto { get; set; }
     }
 }
