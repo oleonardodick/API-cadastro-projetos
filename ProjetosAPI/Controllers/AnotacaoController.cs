@@ -25,9 +25,9 @@ namespace ProjetosAPI.Controllers
         }
 
         [HttpGet]
-        public IActionResult BuscaAnotacoes()
+        public IActionResult BuscaAnotacoes([FromQuery] int? projetoId = null)
         {
-            List<AnotacaoRespostaDto> respostaDto = _anotacaoService.BuscaAnotacoes();
+            List<AnotacaoRespostaDto> respostaDto = _anotacaoService.BuscaAnotacoes(projetoId);
             return Ok(respostaDto);
         }
 

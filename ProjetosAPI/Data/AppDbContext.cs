@@ -37,10 +37,25 @@ namespace ProjetosAPI.Data
                 .WithMany(projeto => projeto.Videos)
                 .HasForeignKey(video => video.ProjetoId);
 
+            builder.Entity<MaterialProjeto>()
+                .HasOne(matProjeto => matProjeto.Material)
+                .WithMany(material => material.MateriaisProjeto)
+                .HasForeignKey(matprojeto => matprojeto.MaterialId);
+
+            builder.Entity<MaterialProjeto>()
+                .HasOne(matProjeto => matProjeto.Projeto)
+                .WithMany(projeto => projeto.MateriaisProjeto)
+                .HasForeignKey(matprojeto => matprojeto.ProjetoId);
+
             builder.Entity<MovimentoProjeto>()
                 .HasOne(movprojeto => movprojeto.Projeto)
                 .WithMany(projeto => projeto.MovimentosProjeto)
                 .HasForeignKey(movprojeto => movprojeto.ProjetoId);
+
+            builder.Entity<OrdemProducao>()
+                .HasOne(ordem => ordem.Projeto)
+                .WithMany(projeto => projeto.OrdensProducao)
+                .HasForeignKey(ordem => ordem.ProjetoId);
         }
 
         public DbSet<Categoria> Categoria { get; set; }
@@ -51,6 +66,8 @@ namespace ProjetosAPI.Data
         public DbSet<Movimento> Movimento { get; set; }
         public DbSet<Projeto> Projeto { get; set; }
         public DbSet<MovimentoProjeto> MovimentoProjeto { get; set; }
+        public DbSet<MaterialProjeto> MaterialProjeto { get; set; }
+        public DbSet<OrdemProducao> OrdemProducao { get; set; }
     }
 }
 

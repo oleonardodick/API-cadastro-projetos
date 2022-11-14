@@ -17,5 +17,7 @@ namespace ProjetosAPI.Models
         public string UnidadeMedida { get; set; }
         [JsonIgnore]
         public virtual List<Movimento> Movimentos { get; set; }
+        [JsonIgnore]
+        public virtual List<MaterialProjeto> MateriaisProjeto { get; set; }
     }
 }

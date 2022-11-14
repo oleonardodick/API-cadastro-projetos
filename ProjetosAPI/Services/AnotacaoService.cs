@@ -24,15 +24,23 @@ namespace ProjetosAPI.Services
         public AnotacaoRespostaDto CriaAnotacao(AnotacaoDto anotacaoDto)
         {
             Anotacao anotacao = _mapper.Map<Anotacao>(anotacaoDto);
+            anotacao.Data = DateTime.Today;
             _context.Anotacao.Add(anotacao);
             _context.SaveChanges();
             return _mapper.Map<AnotacaoRespostaDto>(anotacao);
         }
 
-        public List<AnotacaoRespostaDto> BuscaAnotacoes()
+        public List<AnotacaoRespostaDto> BuscaAnotacoes(int? projetoId)
         {
             List<Anotacao> anotacoes;
-            anotacoes = _context.Anotacao.ToList();
+            if(projetoId == null)
+            {
+                anotacoes = _context.Anotacao.ToList();
+            }
+            else
+            {
+                anotacoes = _context.Anotacao.Where(a => a.ProjetoId == projetoId).ToList();
+            }
             if(anotacoes != null)
             {
                 List<AnotacaoRespostaDto> anotacoesDto = _mapper.Map<List<AnotacaoRespostaDto>>(anotacoes);

@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace ProjetosAPI.Data.Dtos
 {
-    public class AnotacaoDto
+    public class MaterialProjetoDto
     {
         [Required]
-        public string Titulo { get; set; }
-        [Required]
-        public string Texto { get; set; }
         public int ProjetoId { get; set; }
+        [Required]
+        public int MaterialId { get; set; }
+        [Required]
+        public float Quantidade { get; set; }
     }
 }

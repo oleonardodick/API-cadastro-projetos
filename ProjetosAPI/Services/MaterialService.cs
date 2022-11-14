@@ -33,10 +33,18 @@ namespace ProjetosAPI.Services
         public List<MaterialRespostaDto> BuscaMateriais()
         {
             List<Material> materiais;
+            float saldoEntrada = 0;
+            float saldoSaida = 0;
             materiais = _context.Material.ToList();
             if (materiais != null)
             {
                 List<MaterialRespostaDto> materiaisDto = _mapper.Map<List<MaterialRespostaDto>>(materiais);
+                for (int i = 0; i < materiaisDto.Count(); i++)
+                {
+                    saldoEntrada = _context.Movimento.Where(mov => mov.MaterialId == materiaisDto[i].Id && mov.Tipo=='E').Sum(mov => mov.Quantidade);
+                    saldoSaida = _context.Movimento.Where(mov => mov.MaterialId == materiaisDto[i].Id && mov.Tipo == 'S').Sum(mov => mov.Quantidade);
+                    materiaisDto[i].Saldo = saldoEntrada-saldoSaida;
+                }
                 return materiaisDto;
             }
             return null;

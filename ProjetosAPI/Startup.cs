@@ -33,6 +33,7 @@ namespace ProjetosAPI
             services.AddScoped<MovimentoService, MovimentoService>();
             services.AddScoped<VideoService, VideoService>();
             services.AddScoped<ProjetoService, ProjetoService>();
+            services.AddScoped<MaterialProjetoService, MaterialProjetoService>();
             services.AddControllers();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddCors(options => {

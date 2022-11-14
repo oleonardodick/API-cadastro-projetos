@@ -27,10 +27,16 @@ namespace ProjetosAPI.Services
             return _mapper.Map<VideoRespostaDto>(video);
         }
 
-        public List<VideoRespostaDto> BuscaVideos()
+        public List<VideoRespostaDto> BuscaVideos(int? projetoId)
         {
             List<Video> videos;
-            videos = _context.Video.ToList();
+            if(projetoId == null)
+            {
+                videos = _context.Video.ToList();
+            } else
+            {
+                videos = _context.Video.Where(v => v.ProjetoId == projetoId).ToList();
+            }
             if(videos != null)
             {
                 List<VideoRespostaDto> respostaDto = _mapper.Map<List<VideoRespostaDto>>(videos);

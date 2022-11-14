@@ -11,6 +11,6 @@ namespace ProjetosAPI.Data.Dtos
         public string Titulo { get; set; }
         public string Texto { get; set; }
         public DateTime Data { get; set; }
-        public virtual ProjetoRespostaDto Projeto { get; set; }
+        public int ProjetoId { get; set; }
     }
 }

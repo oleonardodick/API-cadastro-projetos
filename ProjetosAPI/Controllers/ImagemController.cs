@@ -29,9 +29,9 @@ namespace ProjetosAPI.Controllers
         }
 
         [HttpGet]
-        public IActionResult BuscaImagens()
+        public IActionResult BuscaImagens([FromQuery] int? projetoId = null)
         {
-            List<ImagemRespostaDto> respostaDto = _imagemService.BuscaImagens();
+            List<ImagemRespostaDto> respostaDto = _imagemService.BuscaImagens(projetoId);
             return Ok(respostaDto);
         }
 

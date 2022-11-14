@@ -29,10 +29,16 @@ namespace ProjetosAPI.Services
             return _mapper.Map<ImagemRespostaDto>(imagem);
         }
 
-        public List<ImagemRespostaDto> BuscaImagens()
+        public List<ImagemRespostaDto> BuscaImagens(int? projetoId)
         {
             List<Imagem> imagens;
-            imagens = _context.Imagem.ToList();
+            if(projetoId == null)
+            {
+                imagens = _context.Imagem.ToList();
+            } else
+            {
+                imagens = _context.Imagem.Where(i => i.ProjetoId == projetoId).ToList();
+            }
             if(imagens != null)
             {
                 List<ImagemRespostaDto> respostaDto = _mapper.Map<List<ImagemRespostaDto>>(imagens);

@@ -25,9 +25,9 @@ namespace ProjetosAPI.Controllers
         }
 
         [HttpGet]
-        public IActionResult BuscaVideos()
+        public IActionResult BuscaVideos([FromQuery] int? projetoId = null)
         {
-            List<VideoRespostaDto> respostaDto = _videoService.BuscaVideos();
+            List<VideoRespostaDto> respostaDto = _videoService.BuscaVideos(projetoId);
             return Ok(respostaDto);
         }
 
