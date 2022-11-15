@@ -154,6 +154,9 @@ namespace ProjetosAPI.Migrations
                     b.Property<int>("MaterialId")
                         .HasColumnType("int");
 
+                    b.Property<int>("OrdemProducaoId")
+                        .HasColumnType("int");
+
                     b.Property<float>("Quantidade")
                         .HasColumnType("real");
 
@@ -175,15 +178,11 @@ namespace ProjetosAPI.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ProjetoId")
+                    b.Property<int>("ProdutoProntoId")
                         .HasColumnType("int");
 
                     b.Property<float>("Quantidade")
                         .HasColumnType("real");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(1)");
 
                     b.Property<string>("Tipo")
                         .IsRequired()
@@ -191,7 +190,7 @@ namespace ProjetosAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProjetoId");
+                    b.HasIndex("ProdutoProntoId");
 
                     b.ToTable("MovimentoProjeto");
                 });
@@ -218,6 +217,23 @@ namespace ProjetosAPI.Migrations
                     b.HasIndex("ProjetoId");
 
                     b.ToTable("OrdemProducao");
+                });
+
+            modelBuilder.Entity("ProjetosAPI.Models.ProdutoPronto", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ProjetoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProjetoId");
+
+                    b.ToTable("ProdutoPronto");
                 });
 
             modelBuilder.Entity("ProjetosAPI.Models.Projeto", b =>
@@ -329,8 +345,19 @@ namespace ProjetosAPI.Migrations
 
             modelBuilder.Entity("ProjetosAPI.Models.MovimentoProjeto", b =>
                 {
+                    b.HasOne("ProjetosAPI.Models.ProdutoPronto", "ProdutoPronto")
+                        .WithMany("Movimentos")
+                        .HasForeignKey("ProdutoProntoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ProdutoPronto");
+                });
+
+            modelBuilder.Entity("ProjetosAPI.Models.OrdemProducao", b =>
+                {
                     b.HasOne("ProjetosAPI.Models.Projeto", "Projeto")
-                        .WithMany("MovimentosProjeto")
+                        .WithMany("OrdensProducao")
                         .HasForeignKey("ProjetoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -338,10 +365,10 @@ namespace ProjetosAPI.Migrations
                     b.Navigation("Projeto");
                 });
 
-            modelBuilder.Entity("ProjetosAPI.Models.OrdemProducao", b =>
+            modelBuilder.Entity("ProjetosAPI.Models.ProdutoPronto", b =>
                 {
                     b.HasOne("ProjetosAPI.Models.Projeto", "Projeto")
-                        .WithMany("OrdensProducao")
+                        .WithMany("ProdutosProntos")
                         .HasForeignKey("ProjetoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -383,6 +410,11 @@ namespace ProjetosAPI.Migrations
                     b.Navigation("Movimentos");
                 });
 
+            modelBuilder.Entity("ProjetosAPI.Models.ProdutoPronto", b =>
+                {
+                    b.Navigation("Movimentos");
+                });
+
             modelBuilder.Entity("ProjetosAPI.Models.Projeto", b =>
                 {
                     b.Navigation("Anotacoes");
@@ -391,9 +423,9 @@ namespace ProjetosAPI.Migrations
 
                     b.Navigation("MateriaisProjeto");
 
-                    b.Navigation("MovimentosProjeto");
-
                     b.Navigation("OrdensProducao");
+
+                    b.Navigation("ProdutosProntos");
 
                     b.Navigation("Videos");
                 });

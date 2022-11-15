@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ProjetosAPI.Migrations
 {
-    public partial class Criandobancodedados : Migration
+    public partial class criandobancodedados : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -66,7 +66,8 @@ namespace ProjetosAPI.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     MaterialId = table.Column<int>(type: "int", nullable: false),
                     Quantidade = table.Column<float>(type: "real", nullable: false),
-                    Tipo = table.Column<string>(type: "nvarchar(1)", nullable: false)
+                    Tipo = table.Column<string>(type: "nvarchar(1)", nullable: false),
+                    OrdemProducaoId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -124,21 +125,66 @@ namespace ProjetosAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "MovimentoProjeto",
+                name: "MaterialProjeto",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Quantidade = table.Column<float>(type: "real", nullable: false),
-                    Tipo = table.Column<string>(type: "nvarchar(1)", nullable: false),
                     ProjetoId = table.Column<int>(type: "int", nullable: false),
+                    MaterialId = table.Column<int>(type: "int", nullable: false),
+                    Quantidade = table.Column<float>(type: "real", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MaterialProjeto", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_MaterialProjeto_Material_MaterialId",
+                        column: x => x.MaterialId,
+                        principalTable: "Material",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_MaterialProjeto_Projeto_ProjetoId",
+                        column: x => x.ProjetoId,
+                        principalTable: "Projeto",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "OrdemProducao",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProjetoId = table.Column<int>(type: "int", nullable: false),
+                    Quantidade = table.Column<float>(type: "real", nullable: false),
                     Status = table.Column<string>(type: "nvarchar(1)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MovimentoProjeto", x => x.Id);
+                    table.PrimaryKey("PK_OrdemProducao", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_MovimentoProjeto_Projeto_ProjetoId",
+                        name: "FK_OrdemProducao_Projeto_ProjetoId",
+                        column: x => x.ProjetoId,
+                        principalTable: "Projeto",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ProdutoPronto",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProjetoId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProdutoPronto", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ProdutoPronto_Projeto_ProjetoId",
                         column: x => x.ProjetoId,
                         principalTable: "Projeto",
                         principalColumn: "Id",
@@ -167,6 +213,27 @@ namespace ProjetosAPI.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "MovimentoProjeto",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Quantidade = table.Column<float>(type: "real", nullable: false),
+                    Tipo = table.Column<string>(type: "nvarchar(1)", nullable: false),
+                    ProdutoProntoId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MovimentoProjeto", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_MovimentoProjeto_ProdutoPronto_ProdutoProntoId",
+                        column: x => x.ProdutoProntoId,
+                        principalTable: "ProdutoPronto",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Anotacao_ProjetoId",
                 table: "Anotacao",
@@ -178,13 +245,33 @@ namespace ProjetosAPI.Migrations
                 column: "ProjetoId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_MaterialProjeto_MaterialId",
+                table: "MaterialProjeto",
+                column: "MaterialId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_MaterialProjeto_ProjetoId",
+                table: "MaterialProjeto",
+                column: "ProjetoId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Movimento_MaterialId",
                 table: "Movimento",
                 column: "MaterialId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MovimentoProjeto_ProjetoId",
+                name: "IX_MovimentoProjeto_ProdutoProntoId",
                 table: "MovimentoProjeto",
+                column: "ProdutoProntoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_OrdemProducao_ProjetoId",
+                table: "OrdemProducao",
+                column: "ProjetoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProdutoPronto_ProjetoId",
+                table: "ProdutoPronto",
                 column: "ProjetoId");
 
             migrationBuilder.CreateIndex(
@@ -207,16 +294,25 @@ namespace ProjetosAPI.Migrations
                 name: "Imagem");
 
             migrationBuilder.DropTable(
+                name: "MaterialProjeto");
+
+            migrationBuilder.DropTable(
                 name: "Movimento");
 
             migrationBuilder.DropTable(
                 name: "MovimentoProjeto");
 
             migrationBuilder.DropTable(
+                name: "OrdemProducao");
+
+            migrationBuilder.DropTable(
                 name: "Video");
 
             migrationBuilder.DropTable(
                 name: "Material");
+
+            migrationBuilder.DropTable(
+                name: "ProdutoPronto");
 
             migrationBuilder.DropTable(
                 name: "Projeto");

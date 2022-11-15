@@ -9,7 +9,10 @@ namespace ProjetosAPI.Profiles
         public OrdemProducaoProfile()
         {
             CreateMap<OrdemProducaoDto, OrdemProducao>();
-            CreateMap<OrdemProducao, OrdemProducaoRespostaDto>();
+            CreateMap<OrdemProducaoUpdateDto, OrdemProducao>();
+            CreateMap<OrdemProducao, OrdemProducaoRespostaDto>()
+                .ForMember(opDto => opDto.Projeto,
+                opts => opts.MapFrom(op => op.Projeto.Descricao));
         }
     }
 }

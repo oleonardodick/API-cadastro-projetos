@@ -14,8 +14,6 @@ namespace ProjetosAPI.Data.Dtos
         [Required]
         public char Tipo { get; set; }
         [Required]
-        public Projeto Projeto { get; set; }
-        [Required]
-        public char Status { get; set; }
+        public int ProdutoProntoId { get; set; }
     }
 }

@@ -29,9 +29,9 @@ namespace ProjetosAPI.Controllers
         }
 
         [HttpGet]
-        public IActionResult BuscaOrdensProducao([FromQuery] int? projetoId = null)
+        public IActionResult BuscaOrdensProducao([FromQuery] char? status = null)
         {
-            List<OrdemProducaoRespostaDto> respostaDto = _ordemProducaoService.BuscaOrdensProducao(projetoId);
+            List<OrdemProducaoRespostaDto> respostaDto = _ordemProducaoService.BuscaOrdensProducao(status);
             return Ok(respostaDto);
         }
 
@@ -44,7 +44,7 @@ namespace ProjetosAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult AtualizaOrdemProducao(int id, [FromBody] OrdemProducaoDto ordemProducaoAtualizada)
+        public IActionResult AtualizaOrdemProducao(int id, [FromBody] OrdemProducaoUpdateDto ordemProducaoAtualizada)
         {
             Result resultado = _ordemProducaoService.AtualizaOrdemProducao(id, ordemProducaoAtualizada);
             if (resultado.IsFailed) return NotFound();

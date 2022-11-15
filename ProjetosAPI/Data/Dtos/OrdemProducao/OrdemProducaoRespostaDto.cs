@@ -10,7 +10,7 @@ namespace ProjetosAPI.Data.Dtos
     public class OrdemProducaoRespostaDto
     {
         public int Id { get; set; }
-        public int ProjetoId { get; set; }
+        public string Projeto { get; set; }
         public float Quantidade { get; set; }
         public char Status { get; set; }
     }

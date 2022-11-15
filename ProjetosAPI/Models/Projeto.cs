@@ -23,7 +23,7 @@ namespace ProjetosAPI.Models
         [JsonIgnore]
         public virtual List<Video> Videos { get; set; }
         [JsonIgnore]
-        public virtual List<MovimentoProjeto> MovimentosProjeto { get; set; }
+        public virtual List<ProdutoPronto> ProdutosProntos { get; set; }
         [JsonIgnore]
         public virtual List<MaterialProjeto> MateriaisProjeto { get; set; }
         [JsonIgnore]

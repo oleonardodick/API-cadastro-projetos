@@ -35,6 +35,8 @@ namespace ProjetosAPI
             services.AddScoped<ProjetoService, ProjetoService>();
             services.AddScoped<MaterialProjetoService, MaterialProjetoService>();
             services.AddScoped<OrdemProducaoService, OrdemProducaoService>();
+            services.AddScoped<ProdutoProntoService, ProdutoProntoService>();
+            services.AddScoped<MovimentoProjetoService, MovimentoProjetoService>();
             services.AddControllers();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddCors(options => {

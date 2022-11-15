@@ -1,9 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ProjetosAPI.Models
 {
@@ -12,11 +8,12 @@ namespace ProjetosAPI.Models
         [Key]
         [Required]
         public int Id { get; set; }
-        [Required]
         public virtual Material Material { get; set; }
+        [Required]
         public int MaterialId { get; set; }
         [Required]
         public float Quantidade { get; set; }
         public char Tipo { get; set; }
+        public int OrdemProducaoId { get; set; }
     }
 }

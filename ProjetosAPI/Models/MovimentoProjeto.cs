@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ProjetosAPI.Models
 {
@@ -15,9 +11,7 @@ namespace ProjetosAPI.Models
         public float Quantidade { get; set; }
         [Required]
         public char Tipo { get; set; }
-        public int ProjetoId { get; set; }
-        public virtual Projeto Projeto { get; set; }
-        [Required]
-        public char Status { get; set; }
+        public int ProdutoProntoId { get; set; }
+        public virtual ProdutoPronto ProdutoPronto { get; set; }
     }
 }

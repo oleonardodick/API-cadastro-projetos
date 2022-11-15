@@ -47,15 +47,21 @@ namespace ProjetosAPI.Data
                 .WithMany(projeto => projeto.MateriaisProjeto)
                 .HasForeignKey(matprojeto => matprojeto.ProjetoId);
 
+            builder.Entity<ProdutoPronto>()
+                .HasOne(prodPronto => prodPronto.Projeto)
+                .WithMany(projeto => projeto.ProdutosProntos)
+                .HasForeignKey(prodPronto => prodPronto.ProjetoId);
+
             builder.Entity<MovimentoProjeto>()
-                .HasOne(movprojeto => movprojeto.Projeto)
-                .WithMany(projeto => projeto.MovimentosProjeto)
-                .HasForeignKey(movprojeto => movprojeto.ProjetoId);
+                .HasOne(mov => mov.ProdutoPronto)
+                .WithMany(prodPronto => prodPronto.Movimentos)
+                .HasForeignKey(mov => mov.ProdutoProntoId);
 
             builder.Entity<OrdemProducao>()
                 .HasOne(ordem => ordem.Projeto)
                 .WithMany(projeto => projeto.OrdensProducao)
                 .HasForeignKey(ordem => ordem.ProjetoId);
+
         }
 
         public DbSet<Categoria> Categoria { get; set; }
@@ -65,6 +71,7 @@ namespace ProjetosAPI.Data
         public DbSet<Material> Material { get; set; }
         public DbSet<Movimento> Movimento { get; set; }
         public DbSet<Projeto> Projeto { get; set; }
+        public DbSet<ProdutoPronto> ProdutoPronto { get; set; }
         public DbSet<MovimentoProjeto> MovimentoProjeto { get; set; }
         public DbSet<MaterialProjeto> MaterialProjeto { get; set; }
         public DbSet<OrdemProducao> OrdemProducao { get; set; }

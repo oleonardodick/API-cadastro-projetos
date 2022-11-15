@@ -11,5 +11,6 @@ namespace ProjetosAPI.Data.Dtos
         public float Quantidade { get; set; }
         [Required]
         public char Tipo { get; set; }
+        public int OrdemProducaoId { get; set; }
     }
 }
