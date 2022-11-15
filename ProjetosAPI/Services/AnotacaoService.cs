@@ -70,6 +70,7 @@ namespace ProjetosAPI.Services
             else
             {
                 _mapper.Map(anotacaoAtualizada, anotacao);
+                _context.Anotacao.Update(anotacao);
                 _context.SaveChanges();
                 return Result.Ok();
             }

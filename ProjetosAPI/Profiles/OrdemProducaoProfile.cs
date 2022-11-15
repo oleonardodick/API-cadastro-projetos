@@ -1,11 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AutoMapper;
+using ProjetosAPI.Data.Dtos;
+using ProjetosAPI.Models;
 
 namespace ProjetosAPI.Profiles
 {
-    public class OrdemProducaoProfile
+    public class OrdemProducaoProfile:Profile
     {
+        public OrdemProducaoProfile()
+        {
+            CreateMap<OrdemProducaoDto, OrdemProducao>();
+            CreateMap<OrdemProducao, OrdemProducaoRespostaDto>();
+        }
     }
 }
