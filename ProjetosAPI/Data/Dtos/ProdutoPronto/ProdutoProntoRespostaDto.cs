@@ -8,6 +8,9 @@ namespace ProjetosAPI.Data.Dtos
 {
     public class ProdutoProntoRespostaDto
     {
-        public int ProjetoId { get; set; }
+        public int Id { get; set; }
+        public string Projeto { get; set; }
+        public float Saldo { get; set; }
+        public float Preco { get; set; }
     }
 }

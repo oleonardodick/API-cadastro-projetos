@@ -23,6 +23,8 @@ namespace ProjetosAPI.Services
 
         public List<ProdutoProntoRespostaDto> BuscaProdutosPronto(int? projetoId)
         {
+            float saldoEntrada = 0;
+            float saldoSaida = 0;
             List<ProdutoPronto> produtosProntos;
             if (projetoId == null)
             {
@@ -35,6 +37,16 @@ namespace ProjetosAPI.Services
             if (produtosProntos != null)
             {
                 List<ProdutoProntoRespostaDto> produtosProntosDto = _mapper.Map<List<ProdutoProntoRespostaDto>>(produtosProntos);
+                for(int i = 0; i<produtosProntosDto.Count(); i++)
+                {
+                    saldoEntrada = _context.MovimentoProjeto.Where(mov => mov.ProdutoProntoId == produtosProntosDto[i].Id && mov.Tipo == 'E').Sum(mov => mov.Quantidade);
+                    saldoSaida = _context.MovimentoProjeto.Where(mov => mov.ProdutoProntoId == produtosProntosDto[i].Id && mov.Tipo == 'S').Sum(mov => mov.Quantidade);
+                    produtosProntosDto[i].Saldo = saldoEntrada - saldoSaida;
+                    if(produtosProntosDto[i].Saldo == 0)
+                    {
+                        produtosProntosDto.Remove(produtosProntosDto[i]);
+                    }
+                }
                 return produtosProntosDto;
             }
             return null;

@@ -9,7 +9,11 @@ namespace ProjetosAPI.Profiles
         public ProdutoProntoProfile()
         {
             CreateMap<ProdutoProntoDto, ProdutoPronto>();
-            CreateMap<ProdutoPronto, ProdutoProntoRespostaDto>();
+            CreateMap<ProdutoPronto, ProdutoProntoRespostaDto>()
+                .ForMember(prod => prod.Projeto,
+                opts => opts.MapFrom(prod => prod.Projeto.Descricao))
+                .ForMember(prod => prod.Preco,
+                opts => opts.MapFrom(prod => prod.Projeto.Preco));
         }
     }
 }
